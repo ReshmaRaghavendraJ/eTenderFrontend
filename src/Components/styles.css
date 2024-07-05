@@ -1,0 +1,96 @@
+img{
+    width:50%;
+    height: 40%;
+    color: white;
+}
+.sidebar
+{
+    background-color: darkgreen;
+    position: fixed;
+    overflow: hidden;
+    height: 100%;
+    width: 200px;
+    top:0;
+    left:0;
+}   
+ .sidebar a{
+    display: block;
+    color: white;
+    text-align: left;   
+    padding:10px 16px;
+    text-decoration: none;
+    font-size:17px;
+    line-height: 1.5;
+} 
+ .sidebar a i{
+    margin-right:15px;
+    width:15px;
+    gap:15px;
+}
+.sidebar .logo
+{
+    padding: 16px;
+    text-align:center;
+}
+.sidebar a:hover
+{
+background-color: deepskyblue;
+color:white; 
+}
+/*********************************slider*****************************/
+.slider
+{
+width: 100%;
+display: flex;
+overflow:hidden;
+}   
+.slide-img
+{
+width: 1065px;
+height:300px;
+margin-right:30px;
+margin-top:20px;
+margin-left:5px;
+animation:15s sliderimages infinite;
+}
+.Slider_image
+{
+display: flex;
+}
+.search-bar {
+  position: fixed;
+  margin-right: 10px;
+  width: 300px;
+  height:40px;
+  top: 150px;
+  right: 0;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 50px;
+  }
+/***************Slider image animation****************/
+@keyframes sliderimages 
+{
+    0%
+    {
+        transform: translateX(0);
+    }    
+    20%
+    {
+        transform: translateX(-100%);
+    }    
+    40%
+    {
+        transform: translateX(-200%);
+    } 
+    80%
+    {
+        transform: translateX(-300%);
+    }  
+    95%
+    {
+        transform: translateX(-500%);
+    }     
+}
