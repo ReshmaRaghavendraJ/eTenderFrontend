@@ -15,6 +15,7 @@ export default function Header()
  <Link to="/Categorylist" className='a'><FontAwesomeIcon icon={faFileAlt}/>Category List</Link><br></br>
  <Link to="/AddCategory" className='a'><FontAwesomeIcon icon={faFolderPlus} />Add Category</Link><br></br>
  <Link to="/Createtender" className='a'><FontAwesomeIcon icon={faPlus} />Create New Tender</Link><br></br>
+ <Link to="/Viewtender" className='a'><FontAwesomeIcon icon={faFileAlt} />View Tender</Link><br></br>
  <Link to='/' className='a'><FontAwesomeIcon icon={faSignOutAlt}/>Logout</Link>
 </div> 
 </>

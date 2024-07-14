@@ -16,11 +16,22 @@ const Bidderid = sessionStorage.getItem('username');
 function handleAddClientProjectworkDetails(e)
 {
 e.preventDefault();
-if (!clientid) {
+if (!clientid) 
+  {
   toast.error("Client ID is missing.");
   return;
 }
 const obj={clientid,clientProjectName,description};
+if(!clientProjectName)
+{
+  toast.error("Enter Client Personname");
+  return;
+}
+if(!description)
+  {
+    toast.error("Enter description");
+    return;
+  }
 axios
   .post(`http://localhost:8080/AddClientProjectwork/${clientid}`,obj)
   .then((res)=>{

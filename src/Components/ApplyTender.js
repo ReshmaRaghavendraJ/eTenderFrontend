@@ -47,13 +47,11 @@ export default function ApplyTender()
             toast.success(res.data);
             sessionStorage.setItem('tenderid', tenderid);
             navigate("/ApplyforTender");
-        }
-        else
-        {
-          toast.error(res.data);
-        }
+        } 
       })
-
+      .catch((error)=>{
+        toast.error(error.response.data);
+      })
   }
 
   useEffect(()=>{

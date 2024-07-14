@@ -18,11 +18,36 @@ export default function TenderRegistration()
     e.preventDefault();
     if(user==='')
       {
-        toast.error("Choose user type");
+        toast.error("Choose user type");  
       }
       else if(user==='Tender')
       {
     const obj={fname,email,phoneno,address,password};
+    if(!fname)
+    {
+      toast.error("enter fname");
+      return;
+    }
+    if (!email || email.length < 3 || email.length > 7) 
+      {
+      toast.error("Enter an email with a length between 3 and 7 characters");
+      return;
+    }
+    if (!phoneno || phoneno.length < 10 || phoneno.length > 10) 
+    {
+      toast.error("Enter an phoneno with a exact 10 digits");
+      return;
+    }
+    if (!address) {
+      toast.error("Enter address");
+      return;
+    }
+    if (!password || password.length > 4 || password.length < 15)
+    {
+      toast.error("Enter an password");
+      return;
+    }
+  
     axios
     .post("http://localhost:8080/TenderRegister",obj)
     .then((res)=>{
@@ -33,6 +58,28 @@ export default function TenderRegistration()
     else if(user==='Bidder')
       {
     const obj={bidderName:fname,emailid:email,mobileno:phoneno,address,password};
+    if(!fname)
+      {
+        toast.error("enter fname");
+        return;
+      }
+      if (!email || email.length < 3 || email.length > 7) 
+        {
+        toast.error("Enter an email with a length between 3 and 7 characters");
+        return;
+      }
+      if (!phoneno || phoneno.length < 10 || email.length > 10) {
+        toast.error("Enter an phoneno with a exact 10 digits");
+        return;
+      }
+      if (!password || password.length > 4 || password.length < 15) {
+        toast.error("Enter an password");
+        return;
+      }
+      if (!email || email.length < 3 || email.length > 7) {
+        toast.error("Enter an email with a length between 3 and 7 characters");
+        return;
+      }
     axios
     .post("http://localhost:8080/BidderRegister",obj)
     .then((res)=>{
@@ -49,6 +96,7 @@ export default function TenderRegistration()
     setphoneno("")
     setaddress("")
     setpassword("")
+    setUser("")
   }
 
   return (

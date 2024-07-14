@@ -19,11 +19,17 @@ const Bidderid=sessionStorage.getItem('username');
     }
     
   const obj={tenderQuotation};
+  if(!tenderQuotation)
+  {
+    toast.error("Enter Quotation Amount");
+    return;
+  }
   axios
   .post(`http://localhost:8080/AddApplyTender/${tndid}/${Bidderid}`,obj)
   .then((res)=>{
    //debugger;
     toast.success(res.data);
+    sessionStorage.setItem("bidderid",Bidderid);
     clearAll();
   })
   .catch((error)=>{

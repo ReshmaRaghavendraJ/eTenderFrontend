@@ -24,14 +24,30 @@ function handleLogin(e)
     }
     else if(user==="Tender")
     {
+      if(!userid)
+      {
+        toast.error("Enter userid");
+        return;
+      }
+      if(!password)
+      {
+        toast.error("Enter Password");
+        return;
+      }
   axios
   .get(`http://localhost:8080/tlogin/${userid}/${password}`)
   .then((res)=>{
+    if(res.data){
     setGetData(res.data);
     clearAll();
     toast.success("Tender Login successful");
     navigate("/Tenderdashboard");
     sessionStorage.setItem('username', userid);
+    }
+    else
+    {
+      toast.error("Unexpected response from server");
+    }
   })
     .catch((error)=>{
       toast.error(error.response.data);
@@ -39,6 +55,16 @@ function handleLogin(e)
   }
   else if(user==="Bidder")
     {
+      if(!userid)
+        {
+          toast.error("Enter userid");
+          return;
+        }
+        if(!password)
+        {
+          toast.error("Enter Password");
+          return;
+        }
     axios
     .get(`http://localhost:8080/blogin/${userid}/${password}`)
     .then((res)=>{
@@ -54,6 +80,16 @@ function handleLogin(e)
     }
       else if(user==="Client")
         {
+          if(!userid)
+            {
+              toast.error("Enter userid");
+              return;
+            }
+            if(!password)
+            {
+              toast.error("Enter Password");
+              return;
+            }
       axios
     .get(`http://localhost:8080/clogin/${userid}/${password}`)
     .then((res)=>{

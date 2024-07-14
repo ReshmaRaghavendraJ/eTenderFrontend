@@ -12,6 +12,7 @@ import About from './Components/About'
 import Categorylist from './Components/Categorylist'
 import AddCategory from './Components/AddCategory'
 import Createtender from './Components/Createtender'
+import Viewtender from './Components/Viewtender'
 import AddClientDetails from './Components/AddClientDetails'
 import AddClientProjectWork from './Components/AddClientProjectWork'
 import Viewprojects from './Components/Viewprojects' 
@@ -19,6 +20,8 @@ import ViewClientProjects from './Components/ViewClientProjects'
 import Post from './Components/Post'
 import ApplyTender from './Components/ApplyTender'
 import ApplyforTender from './Components/ApplyforTender'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function App() {
   return (
@@ -34,6 +37,7 @@ export default function App() {
         <Route path="/Categorylist" element={<Categorylist/>}/>
         <Route path="/AddCategory" element={<AddCategory/>}/>
         <Route path="/Createtender" element={<Createtender/>}/> 
+        <Route path="/Viewtender" element={<Viewtender/>}/> 
         <Route path="/Bidderdashboard" element={<Bidderdashboard/>}/>
         <Route path="/AddClientDetails" element={<AddClientDetails/>}/>
         <Route path="/AddClientProjectWork" element={<AddClientProjectWork/>}/>

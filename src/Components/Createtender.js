@@ -15,8 +15,8 @@ const[description,setDescription]=useState();
 const [categoryId,setCategoryid]=useState();
 const TenderCompanyid = sessionStorage.getItem('username');
 sessionStorage.setItem('categoryid',categoryId);
-    sessionStorage.setItem('startdate', bidstardate);
-    sessionStorage.setItem('closedate', bidclosedate);
+sessionStorage.setItem('startdate', bidstardate);
+sessionStorage.setItem('closedate', bidclosedate);
 
 
   function GetCategory()
@@ -40,11 +40,37 @@ useEffect(()=>{
 function handleCreateTender(e)
 {
   e.preventDefault();
+  const obj={tendername,bidstardate,bidclosedate,description,categoryId};
   if (!TenderCompanyid) {
     toast.error("Tender company ID is missing.");
     return;
   }
-  const obj={tendername,description,bidstardate,bidclosedate,categoryId};
+  if(!categoryId)
+    {
+      toast.error("enter categoryId");
+      return;
+    }
+  if(!tendername)
+    {
+      toast.error("enter tendername");
+      return;
+    }
+      if(!bidstardate)
+        {
+          toast.error("enter bidstardate");
+          return;
+        }
+        if(!bidclosedate)
+          {
+            toast.error("enter bidclosedate");
+            return;
+          }
+          if(!description)
+            {
+              toast.error("enter description");
+              return;
+            }
+        
   axios
   .post(`http://localhost:8080/Createtender/${categoryId}/${TenderCompanyid}`,obj)
   .then((res)=>{

@@ -21,6 +21,26 @@ export default function AddClientDetails()
     return;
   }
   const obj={clientPersonName,phoneno,address,emailid};
+  if(!clientPersonName)
+  {
+    toast.error("enter Client personname");
+    return;
+  }
+  if (!phoneno || phoneno.length < 10 || phoneno.length > 10)
+     {
+    toast.error("Enter an phoneno with a exact 10 digits");
+    return;
+  }
+    if(!address)
+      {
+        toast.error("enter address");
+        return;
+      }
+      if(!emailid || emailid.length < 3 || emailid.length > 7)
+        {
+          toast.error("Enter an email with a length between 3 and 7 characters");
+          return;
+        }
   axios
   .post(`http://localhost:8080/AddClientDetails/${Bidderid}`,obj)
   .then((res)=>{

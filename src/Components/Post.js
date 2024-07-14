@@ -15,6 +15,11 @@ export default function Post()
     {
         e.preventDefault();
        const obj={feedback,feedbackDate};
+       if(!feedback)
+       {
+        toast.error("Enter Feedback");
+        return;
+       }
      axios
      .post(`http://localhost:8080/PostComments/${pid}`,obj)
      .then((res)=>{

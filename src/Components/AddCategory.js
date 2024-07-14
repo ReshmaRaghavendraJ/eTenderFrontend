@@ -13,6 +13,11 @@ export default function AddCategory()
     {
         e.preventDefault();
         const obj={category};
+        if(!category)
+        {
+          toast.error("Enter Category name");
+          return;
+        }
         axios
         .post("http://localhost:8080/AddCategory",obj)
         .then((res)=>{
